@@ -149,6 +149,10 @@
             margin: auto 0;
         }
 
+        .hand-heading { font-family: var(--hand-font); font-size: clamp(22px, 5vw, 36px); margin: 0 0 10px 0; color: #2b2b2b; }
+        .hand-sub { font-family: var(--hand-font); font-size: clamp(18px, 4vw, 26px); margin: 0 0 10px 0; color: #555; }
+        .description { font-size: clamp(14px, 3.2vw, 17px); line-height: 1.5; margin-bottom: 12px; color: #333; }
+
         .btn-hand {
             font-family: var(--hand-font); font-weight: bold; font-size: clamp(14px, 3.2vw, 18px);
             background: #ffffff; border: 2px solid #2b2b2b;
@@ -171,12 +175,12 @@
         }
 
         .polaroid-media-box {
-            width: 100%; height: clamp(150px, 22vh, 260px); background-color: #1e293b;
+            width: 100%; height: clamp(160px, 25vh, 260px); background-color: #1e293b;
             border-radius: 6px; position: relative; overflow: hidden;
             display: flex; justify-content: center; align-items: center;
         }
 
-        .polaroid-media-box video { width: 100%; height: 100%; object-fit: cover; display: block; }
+        .polaroid-media-box video { width: 100%; height: 100%; object-fit: cover; display: block; background: #000; }
 
         .sticky-note { padding: 10px 14px; border-radius: 6px; font-family: var(--hand-font); font-size: clamp(14px, 3.2vw, 19px); box-shadow: 3px 3px 10px rgba(0,0,0,0.08); border-left: 5px solid rgba(0,0,0,0.15); margin-bottom: 10px; display: inline-block; width: 100%; word-break: break-word; }
         .sticky-yellow { background-color: var(--accent-yellow); }
@@ -214,8 +218,6 @@
         .dot.active { background: #ff7043; transform: scale(1.3); }
         .slide-counter { font-size: clamp(11px, 2.6vw, 14px); font-weight: 500; white-space: nowrap; }
 
-        input[type="file"] { display: none; }
-        
         .slide-nav { display: flex; gap: 8px; width: 100%; max-width: 900px; margin-top: auto; padding-top: 10px; flex-wrap: nowrap; align-items: center; justify-content: space-between; }
         .nav-right { margin-left: auto; display: flex; gap: 8px; flex-wrap: nowrap; }
     </style>
@@ -269,7 +271,7 @@
                 </div>
             </div>
 
-            <!-- SLIDE 2: Happiness (Start of Emotion Section) -->
+            <!-- SLIDE 2: Happiness -->
             <div class="slide" id="slide-2">
                 <div class="slide-body">
                     <h2 class="hand-heading">Emotion 1 — Happiness</h2>
@@ -282,12 +284,16 @@
                         </div>
                         <div class="polaroid">
                             <div class="polaroid-media-box">
-                                <video id="emo-1" src="./happiness.mp4" controls playsinline webkit-playsinline preload="metadata"></video>
+                                <video id="emo-1" controls playsinline webkit-playsinline preload="auto">
+                                    <source src="happiness.mp4" type="video/mp4">
+                                    <source src="./happiness.mp4" type="video/mp4">
+                                </video>
                             </div>
                         </div>
                     </div>
                 </div>
                 <div class="slide-nav">
+                    <button class="btn-hand" onclick="goToSlide(1)"><i class="fa-solid fa-house"></i> Home</button>
                     <div class="nav-right">
                         <button class="btn-hand" onclick="goToSlide(3)">Next: Sadness <i class="fa-solid fa-chevron-right"></i></button>
                     </div>
@@ -305,7 +311,10 @@
                         </div>
                         <div class="polaroid">
                             <div class="polaroid-media-box">
-                                <video id="emo-2" src="./sadness.mp4" controls playsinline webkit-playsinline preload="metadata"></video>
+                                <video id="emo-2" controls playsinline webkit-playsinline preload="auto">
+                                    <source src="sadness.mp4" type="video/mp4">
+                                    <source src="./sadness.mp4" type="video/mp4">
+                                </video>
                             </div>
                         </div>
                     </div>
@@ -330,7 +339,10 @@
                         </div>
                         <div class="polaroid">
                             <div class="polaroid-media-box">
-                                <video id="emo-3" src="./fear.mp4" controls playsinline webkit-playsinline preload="metadata"></video>
+                                <video id="emo-3" controls playsinline webkit-playsinline preload="auto">
+                                    <source src="fear.mp4" type="video/mp4">
+                                    <source src="./fear.mp4" type="video/mp4">
+                                </video>
                             </div>
                         </div>
                     </div>
@@ -355,7 +367,10 @@
                         </div>
                         <div class="polaroid">
                             <div class="polaroid-media-box">
-                                <video id="emo-4" src="./anger.mp4" controls playsinline webkit-playsinline preload="metadata"></video>
+                                <video id="emo-4" controls playsinline webkit-playsinline preload="auto">
+                                    <source src="anger.mp4" type="video/mp4">
+                                    <source src="./anger.mp4" type="video/mp4">
+                                </video>
                             </div>
                         </div>
                     </div>
@@ -380,7 +395,10 @@
                         </div>
                         <div class="polaroid">
                             <div class="polaroid-media-box">
-                                <video id="emo-5" src="./surprise.mp4" controls playsinline webkit-playsinline preload="metadata"></video>
+                                <video id="emo-5" controls playsinline webkit-playsinline preload="auto">
+                                    <source src="surprise.mp4" type="video/mp4">
+                                    <source src="./surprise.mp4" type="video/mp4">
+                                </video>
                             </div>
                         </div>
                     </div>
@@ -405,7 +423,10 @@
                         </div>
                         <div class="polaroid">
                             <div class="polaroid-media-box">
-                                <video id="vid-emo-6" src="./disgust.mp4" controls playsinline webkit-playsinline preload="metadata"></video>
+                                <video id="vid-emo-6" controls playsinline webkit-playsinline preload="auto">
+                                    <source src="disgust.mp4" type="video/mp4">
+                                    <source src="./disgust.mp4" type="video/mp4">
+                                </video>
                             </div>
                         </div>
                     </div>
@@ -419,7 +440,7 @@
                 </div>
             </div>
 
-            <!-- SLIDE 8: Quote 1 (Start of Quotes Section) -->
+            <!-- SLIDE 8: Quote 1 -->
             <div class="slide" id="slide-8">
                 <div class="slide-body">
                     <h2 class="hand-heading">Quote 1: Rationality & Emotion</h2>
@@ -427,11 +448,15 @@
                         <div class="quote-text">"The emotional tail wagging the rational dog."</div>
                         <div class="quote-author">— Jonathan Haidt</div>
                         <div class="quote-audio-panel">
-                            <audio id="quote-1" src="./quote1.mp3" controls preload="metadata" style="height:40px; width:100%; max-width:320px;"></audio>
+                            <audio id="quote-1" controls preload="auto" style="height:40px; width:100%; max-width:320px;">
+                                <source src="quote1.mp3" type="audio/mpeg">
+                                <source src="./quote1.mp3" type="audio/mpeg">
+                            </audio>
                         </div>
                     </div>
                 </div>
                 <div class="slide-nav">
+                    <button class="btn-hand" onclick="goToSlide(1)"><i class="fa-solid fa-house"></i> Home</button>
                     <div class="nav-right">
                         <button class="btn-hand" onclick="goToSlide(9)">Next Quote <i class="fa-solid fa-chevron-right"></i></button>
                     </div>
@@ -446,7 +471,10 @@
                         <div class="quote-text">"Sadness is not a weakness; it is a sign of a caring heart."</div>
                         <div class="quote-author">— Anonymous</div>
                         <div class="quote-audio-panel">
-                            <audio id="quote-2" src="./quote2.mp3" controls preload="metadata" style="height:40px; width:100%; max-width:320px;"></audio>
+                            <audio id="quote-2" controls preload="auto" style="height:40px; width:100%; max-width:320px;">
+                                <source src="quote2.mp3" type="audio/mpeg">
+                                <source src="./quote2.mp3" type="audio/mpeg">
+                            </audio>
                         </div>
                     </div>
                 </div>
@@ -467,7 +495,10 @@
                         <div class="quote-text">"Unexpressed emotions will never die. They are buried alive and will come forth later in uglier ways."</div>
                         <div class="quote-author">— Sigmund Freud</div>
                         <div class="quote-audio-panel">
-                            <audio id="quote-3" src="./quote3.mp3" controls preload="metadata" style="height:40px; width:100%; max-width:320px;"></audio>
+                            <audio id="quote-3" controls preload="auto" style="height:40px; width:100%; max-width:320px;">
+                                <source src="quote3.mp3" type="audio/mpeg">
+                                <source src="./quote3.mp3" type="audio/mpeg">
+                            </audio>
                         </div>
                     </div>
                 </div>
@@ -488,7 +519,10 @@
                         <div class="quote-text">"Anger can be transformed into energy for positive change."</div>
                         <div class="quote-author">— Anonymous</div>
                         <div class="quote-audio-panel">
-                            <audio id="quote-4" src="./quote4.mp3" controls preload="metadata" style="height:40px; width:100%; max-width:320px;"></audio>
+                            <audio id="quote-4" controls preload="auto" style="height:40px; width:100%; max-width:320px;">
+                                <source src="quote4.mp3" type="audio/mpeg">
+                                <source src="./quote4.mp3" type="audio/mpeg">
+                            </audio>
                         </div>
                     </div>
                 </div>
@@ -509,7 +543,10 @@
                         <div class="quote-text">"When dealing with people, remember you are not dealing with creatures of logic, but creatures of emotion."</div>
                         <div class="quote-author">— Dale Carnegie</div>
                         <div class="quote-audio-panel">
-                            <audio id="quote-5" src="./quote5.mp3" controls preload="metadata" style="height:40px; width:100%; max-width:320px;"></audio>
+                            <audio id="quote-5" controls preload="auto" style="height:40px; width:100%; max-width:320px;">
+                                <source src="quote5.mp3" type="audio/mpeg">
+                                <source src="./quote5.mp3" type="audio/mpeg">
+                            </audio>
                         </div>
                     </div>
                 </div>
@@ -530,7 +567,10 @@
                         <div class="quote-text">"Fear only vanishes when we dare to step forward."</div>
                         <div class="quote-author">— Anonymous</div>
                         <div class="quote-audio-panel">
-                            <audio id="quote-6" src="./quote6.mp3" controls preload="metadata" style="height:40px; width:100%; max-width:320px;"></audio>
+                            <audio id="quote-6" controls preload="auto" style="height:40px; width:100%; max-width:320px;">
+                                <source src="quote6.mp3" type="audio/mpeg">
+                                <source src="./quote6.mp3" type="audio/mpeg">
+                            </audio>
                         </div>
                     </div>
                 </div>
@@ -543,7 +583,7 @@
                 </div>
             </div>
 
-            <!-- SLIDE 14: Activity 1 (Start of Activity Section) -->
+            <!-- SLIDE 14: Activity 1 -->
             <div class="slide" id="slide-14">
                 <div class="slide-body">
                     <h2 class="hand-heading">Activity 1: Breathing</h2>
@@ -554,12 +594,16 @@
                         </div>
                         <div class="polaroid">
                             <div class="polaroid-media-box">
-                                <video id="act-1" src="./activity1.mp4" controls playsinline webkit-playsinline preload="metadata"></video>
+                                <video id="act-1" controls playsinline webkit-playsinline preload="auto">
+                                    <source src="activity1.mp4" type="video/mp4">
+                                    <source src="./activity1.mp4" type="video/mp4">
+                                </video>
                             </div>
                         </div>
                     </div>
                 </div>
                 <div class="slide-nav">
+                    <button class="btn-hand" onclick="goToSlide(1)"><i class="fa-solid fa-house"></i> Home</button>
                     <div class="nav-right">
                         <button class="btn-hand" onclick="goToSlide(15)">Next Activity <i class="fa-solid fa-chevron-right"></i></button>
                     </div>
@@ -577,7 +621,10 @@
                         </div>
                         <div class="polaroid">
                             <div class="polaroid-media-box">
-                                <video id="act-2" src="./activity2.mp4" controls playsinline webkit-playsinline preload="metadata"></video>
+                                <video id="act-2" controls playsinline webkit-playsinline preload="auto">
+                                    <source src="activity2.mp4" type="video/mp4">
+                                    <source src="./activity2.mp4" type="video/mp4">
+                                </video>
                             </div>
                         </div>
                     </div>
@@ -602,7 +649,10 @@
                         </div>
                         <div class="polaroid">
                             <div class="polaroid-media-box">
-                                <video id="act-3" src="./activity3.mp4" controls playsinline webkit-playsinline preload="metadata"></video>
+                                <video id="act-3" controls playsinline webkit-playsinline preload="auto">
+                                    <source src="activity3.mp4" type="video/mp4">
+                                    <source src="./activity3.mp4" type="video/mp4">
+                                </video>
                             </div>
                         </div>
                     </div>
@@ -661,11 +711,13 @@
             }
         }
 
-        // Unlock audio context on touch start for iOS & Android
-        document.addEventListener('touchstart', function unlockAudio() {
-            initSynthEngine();
-            document.removeEventListener('touchstart', unlockAudio);
-        }, { once: true });
+        // Unlock audio context on touch/click for mobile browsers
+        ['touchstart', 'click'].forEach(evt => {
+            document.addEventListener(evt, function unlockAudio() {
+                initSynthEngine();
+                document.removeEventListener(evt, unlockAudio);
+            }, { once: true });
+        });
 
         function playUkeNote(freq, dur = 0.35, vol = 0.2, type = 'sine') {
             if (!audioCtx || audioCtx.state !== 'running') return;
