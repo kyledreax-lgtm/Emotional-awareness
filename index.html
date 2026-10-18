@@ -193,6 +193,8 @@
         .quote-text { font-family: var(--hand-font); font-size: clamp(18px, 4.2vw, 30px); line-height: 1.35; color: #2b2b2b; }
         .quote-author { font-family: var(--hand-font); font-size: clamp(15px, 3.2vw, 22px); color: #666; text-align: right; margin-top: 10px; }
 
+        .quote-audio-panel { margin-top: 14px; padding-top: 12px; border-top: 2px dashed #ccc; display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 10px; }
+
         .split-view { display: flex; flex-direction: column; gap: 14px; margin: 8px 0; width: 100%; }
         @media (min-width: 768px) {
             .split-view { flex-direction: row; justify-content: space-between; align-items: center; gap: 30px; }
@@ -222,6 +224,9 @@
 </head>
 <body>
 
+    <!-- Main Audio Element -->
+    <audio id="mainBgAudio" loop preload="auto"></audio>
+
     <div class="app-container">
         <!-- App Top Bar -->
         <div class="app-bar">
@@ -248,7 +253,7 @@
                             <p style="font-family: var(--hand-font); font-size: clamp(16px, 3.5vw, 22px); margin: 0 0 10px 0; color: #444;">Interactive Guide for Teenagers</p>
                         </div>
                         <div class="sticky-note sticky-pink" style="transform: rotate(2deg); max-width: 320px;">
-                            <i class="fa-solid fa-heart-pulse"></i> Tap the Music button to toggle ambient sound!
+                            <i class="fa-solid fa-heart-pulse"></i> Don't forget to reflect with the music!
                         </div>
                     </div>
 
@@ -279,8 +284,9 @@
                         </div>
                         <div class="polaroid">
                             <div class="polaroid-media-box">
-                                <video id="emo-1" controls playsinline preload="metadata">
-                                    <source src="https://placeholdervideo.dev/1280x720" type="video/mp4">
+                                <video id="emo-1" controls playsinline webkit-playsinline preload="auto">
+                                    <source src="happiness.mp4" type="video/mp4">
+                                    <source src="./happiness.mp4" type="video/mp4">
                                 </video>
                             </div>
                         </div>
@@ -305,8 +311,9 @@
                         </div>
                         <div class="polaroid">
                             <div class="polaroid-media-box">
-                                <video id="emo-2" controls playsinline preload="metadata">
-                                    <source src="https://placeholdervideo.dev/1280x720" type="video/mp4">
+                                <video id="emo-2" controls playsinline webkit-playsinline preload="auto">
+                                    <source src="sadness.mp4" type="video/mp4">
+                                    <source src="./sadness.mp4" type="video/mp4">
                                 </video>
                             </div>
                         </div>
@@ -332,8 +339,9 @@
                         </div>
                         <div class="polaroid">
                             <div class="polaroid-media-box">
-                                <video id="emo-3" controls playsinline preload="metadata">
-                                    <source src="https://placeholdervideo.dev/1280x720" type="video/mp4">
+                                <video id="emo-3" controls playsinline webkit-playsinline preload="auto">
+                                    <source src="fear.mp4" type="video/mp4">
+                                    <source src="./fear.mp4" type="video/mp4">
                                 </video>
                             </div>
                         </div>
@@ -359,8 +367,9 @@
                         </div>
                         <div class="polaroid">
                             <div class="polaroid-media-box">
-                                <video id="emo-4" controls playsinline preload="metadata">
-                                    <source src="https://placeholdervideo.dev/1280x720" type="video/mp4">
+                                <video id="emo-4" controls playsinline webkit-playsinline preload="auto">
+                                    <source src="anger.mp4" type="video/mp4">
+                                    <source src="./anger.mp4" type="video/mp4">
                                 </video>
                             </div>
                         </div>
@@ -386,8 +395,9 @@
                         </div>
                         <div class="polaroid">
                             <div class="polaroid-media-box">
-                                <video id="emo-5" controls playsinline preload="metadata">
-                                    <source src="https://placeholdervideo.dev/1280x720" type="video/mp4">
+                                <video id="emo-5" controls playsinline webkit-playsinline preload="auto">
+                                    <source src="surprise.mp4" type="video/mp4">
+                                    <source src="./surprise.mp4" type="video/mp4">
                                 </video>
                             </div>
                         </div>
@@ -413,8 +423,9 @@
                         </div>
                         <div class="polaroid">
                             <div class="polaroid-media-box">
-                                <video id="vid-emo-6" controls playsinline preload="metadata">
-                                    <source src="https://placeholdervideo.dev/1280x720" type="video/mp4">
+                                <video id="vid-emo-6" controls playsinline webkit-playsinline preload="auto">
+                                    <source src="disgust.mp4" type="video/mp4">
+                                    <source src="./disgust.mp4" type="video/mp4">
                                 </video>
                             </div>
                         </div>
@@ -436,6 +447,12 @@
                     <div class="quote-bubble">
                         <div class="quote-text">"The emotional tail wagging the rational dog."</div>
                         <div class="quote-author">— Jonathan Haidt</div>
+                        <div class="quote-audio-panel">
+                            <audio id="quote-1" controls preload="auto" style="height:40px; width:100%; max-width:320px;">
+                                <source src="quote1.mp3" type="audio/mpeg">
+                                <source src="./quote1.mp3" type="audio/mpeg">
+                            </audio>
+                        </div>
                     </div>
                 </div>
                 <div class="slide-nav">
@@ -453,6 +470,12 @@
                     <div class="quote-bubble">
                         <div class="quote-text">"Sadness is not a weakness; it is a sign of a caring heart."</div>
                         <div class="quote-author">— Anonymous</div>
+                        <div class="quote-audio-panel">
+                            <audio id="quote-2" controls preload="auto" style="height:40px; width:100%; max-width:320px;">
+                                <source src="quote2.mp3" type="audio/mpeg">
+                                <source src="./quote2.mp3" type="audio/mpeg">
+                            </audio>
+                        </div>
                     </div>
                 </div>
                 <div class="slide-nav">
@@ -471,6 +494,12 @@
                     <div class="quote-bubble">
                         <div class="quote-text">"Unexpressed emotions will never die. They are buried alive and will come forth later in uglier ways."</div>
                         <div class="quote-author">— Sigmund Freud</div>
+                        <div class="quote-audio-panel">
+                            <audio id="quote-3" controls preload="auto" style="height:40px; width:100%; max-width:320px;">
+                                <source src="quote3.mp3" type="audio/mpeg">
+                                <source src="./quote3.mp3" type="audio/mpeg">
+                            </audio>
+                        </div>
                     </div>
                 </div>
                 <div class="slide-nav">
@@ -489,6 +518,12 @@
                     <div class="quote-bubble">
                         <div class="quote-text">"Anger can be transformed into energy for positive change."</div>
                         <div class="quote-author">— Anonymous</div>
+                        <div class="quote-audio-panel">
+                            <audio id="quote-4" controls preload="auto" style="height:40px; width:100%; max-width:320px;">
+                                <source src="quote4.mp3" type="audio/mpeg">
+                                <source src="./quote4.mp3" type="audio/mpeg">
+                            </audio>
+                        </div>
                     </div>
                 </div>
                 <div class="slide-nav">
@@ -507,6 +542,12 @@
                     <div class="quote-bubble">
                         <div class="quote-text">"When dealing with people, remember you are not dealing with creatures of logic, but creatures of emotion."</div>
                         <div class="quote-author">— Dale Carnegie</div>
+                        <div class="quote-audio-panel">
+                            <audio id="quote-5" controls preload="auto" style="height:40px; width:100%; max-width:320px;">
+                                <source src="quote5.mp3" type="audio/mpeg">
+                                <source src="./quote5.mp3" type="audio/mpeg">
+                            </audio>
+                        </div>
                     </div>
                 </div>
                 <div class="slide-nav">
@@ -525,6 +566,12 @@
                     <div class="quote-bubble">
                         <div class="quote-text">"Fear only vanishes when we dare to step forward."</div>
                         <div class="quote-author">— Anonymous</div>
+                        <div class="quote-audio-panel">
+                            <audio id="quote-6" controls preload="auto" style="height:40px; width:100%; max-width:320px;">
+                                <source src="quote6.mp3" type="audio/mpeg">
+                                <source src="./quote6.mp3" type="audio/mpeg">
+                            </audio>
+                        </div>
                     </div>
                 </div>
                 <div class="slide-nav">
@@ -547,8 +594,9 @@
                         </div>
                         <div class="polaroid">
                             <div class="polaroid-media-box">
-                                <video id="act-1" controls playsinline preload="metadata">
-                                    <source src="https://placeholdervideo.dev/1280x720" type="video/mp4">
+                                <video id="act-1" controls playsinline webkit-playsinline preload="auto">
+                                    <source src="activity1.mp4" type="video/mp4">
+                                    <source src="./activity1.mp4" type="video/mp4">
                                 </video>
                             </div>
                         </div>
@@ -573,8 +621,9 @@
                         </div>
                         <div class="polaroid">
                             <div class="polaroid-media-box">
-                                <video id="act-2" controls playsinline preload="metadata">
-                                    <source src="https://placeholdervideo.dev/1280x720" type="video/mp4">
+                                <video id="act-2" controls playsinline webkit-playsinline preload="auto">
+                                    <source src="activity2.mp4" type="video/mp4">
+                                    <source src="./activity2.mp4" type="video/mp4">
                                 </video>
                             </div>
                         </div>
@@ -600,8 +649,9 @@
                         </div>
                         <div class="polaroid">
                             <div class="polaroid-media-box">
-                                <video id="act-3" controls playsinline preload="metadata">
-                                    <source src="https://placeholdervideo.dev/1280x720" type="video/mp4">
+                                <video id="act-3" controls playsinline webkit-playsinline preload="auto">
+                                    <source src="activity3.mp4" type="video/mp4">
+                                    <source src="./activity3.mp4" type="video/mp4">
                                 </video>
                             </div>
                         </div>
@@ -641,54 +691,50 @@
         }
 
         // --- Audio Engine ---
+        const mainAudio = document.getElementById('mainBgAudio');
         let isMusicPlaying = false;
         let audioCtx = null;
         let synthTimer = null;
         let masterGain = null;
 
+        mainAudio.volume = 0.35;
+
         function initSynthEngine() {
             if (!audioCtx) {
-                const AudioContextClass = window.AudioContext || window.webkitAudioContext;
-                if (AudioContextClass) {
-                    audioCtx = new AudioContextClass();
-                    masterGain = audioCtx.createGain();
-                    const volVal = parseFloat(document.getElementById('bgVolume').value || 0.35);
-                    masterGain.gain.setValueAtTime(volVal, audioCtx.currentTime);
-                    masterGain.connect(audioCtx.destination);
-                }
+                audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+                masterGain = audioCtx.createGain();
+                masterGain.gain.value = parseFloat(document.getElementById('bgVolume').value);
+                masterGain.connect(audioCtx.destination);
             }
-            if (audioCtx && audioCtx.state === 'suspended') {
+            if (audioCtx.state === 'suspended') {
                 audioCtx.resume();
             }
         }
 
-        // Unlock audio context on user interaction
-        ['touchstart', 'click', 'keydown'].forEach(evt => {
+        // Unlock audio context on touch/click for mobile browsers
+        ['touchstart', 'click'].forEach(evt => {
             document.addEventListener(evt, function unlockAudio() {
                 initSynthEngine();
+                document.removeEventListener(evt, unlockAudio);
             }, { once: true });
         });
 
         function playUkeNote(freq, dur = 0.35, vol = 0.2, type = 'sine') {
             if (!audioCtx || audioCtx.state !== 'running') return;
-            try {
-                const osc = audioCtx.createOscillator();
-                const gain = audioCtx.createGain();
-                
-                osc.type = type;
-                osc.frequency.setValueAtTime(freq, audioCtx.currentTime);
-                
-                gain.gain.setValueAtTime(vol, audioCtx.currentTime);
-                gain.gain.exponentialRampToValueAtTime(0.001, audioCtx.currentTime + dur);
-                
-                osc.connect(gain);
-                gain.connect(masterGain);
-                
-                osc.start();
-                osc.stop(audioCtx.currentTime + dur);
-            } catch (err) {
-                console.warn('Audio playback issue:', err);
-            }
+            const osc = audioCtx.createOscillator();
+            const gain = audioCtx.createGain();
+            
+            osc.type = type;
+            osc.frequency.setValueAtTime(freq, audioCtx.currentTime);
+            
+            gain.gain.setValueAtTime(vol, audioCtx.currentTime);
+            gain.gain.exponentialRampToValueAtTime(0.001, audioCtx.currentTime + dur);
+            
+            osc.connect(gain);
+            gain.connect(masterGain);
+            
+            osc.start();
+            osc.stop(audioCtx.currentTime + dur);
         }
 
         const chordNotes = {
@@ -755,14 +801,16 @@
 
         function updateBgVolume(val) {
             const vol = parseFloat(val);
-            if (masterGain && audioCtx) {
-                masterGain.gain.setValueAtTime(vol, audioCtx.currentTime);
+            mainAudio.volume = vol;
+            if (masterGain) {
+                masterGain.gain.setValueAtTime(vol, audioCtx ? audioCtx.currentTime : 0);
             }
         }
 
         function goToSlide(slideNumber) {
-            document.querySelectorAll('video').forEach(v => {
-                v.pause();
+            document.querySelectorAll('video').forEach(v => v.pause());
+            document.querySelectorAll('audio').forEach(a => {
+                if (a !== mainAudio) a.pause();
             });
             
             const activeSlide = document.querySelector('.slide.active');
@@ -788,12 +836,12 @@
 
         function toggleFullscreen() {
             const container = document.querySelector('.app-container');
-            if (!document.fullscreenElement && !document.webkitFullscreenElement) {
+            if (!document.fullscreenElement) {
                 if (container.requestFullscreen) container.requestFullscreen();
                 else if (container.webkitRequestFullscreen) container.webkitRequestFullscreen();
             } else {
                 if (document.exitFullscreen) document.exitFullscreen();
-                else if (document.webkitExitFullscreen) document.webkitExitFullscreen();
+                else if (container.webkitExitFullscreen) container.webkitExitFullscreen();
             }
         }
 
