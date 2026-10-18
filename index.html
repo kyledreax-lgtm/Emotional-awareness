@@ -46,7 +46,7 @@ html,body{margin:0;padding:0;width:100%;height:100%;height:100dvh;background:#12
 </style>
 </head>
 <body>
-<audio id="mainBgAudio" loop preload="metadata"><source src="./mainaudio.mp3" type="audio/mpeg">Your browser does not support HTML audio.</audio>
+<audio id="mainBgAudio" loop preload="metadata"><source src="./media/mainaudio.mp3" type="audio/mpeg">Your browser does not support HTML audio.</audio>
 <div class="app-container">
 <header class="app-bar">
   <div class="app-title"><i class="fa-solid fa-layer-group"></i> Emotional Awareness &amp; Healing</div>
@@ -89,7 +89,7 @@ const dotsContainer=document.getElementById('dotsContainer');
 for(let i=1;i<=TOTAL_SLIDES;i++){const dot=document.createElement('div');dot.className='dot'+(i===1?' active':'');dot.title='Go to slide '+i;dot.setAttribute('role','button');dot.setAttribute('aria-label','Go to slide '+i);dot.onclick=()=>goToSlide(i);dotsContainer.appendChild(dot)}
 // Missing video files are reported clearly instead of leaving a misleading 0:00 player.
 document.querySelectorAll('.polaroid-media-box video').forEach(video=>{
-  video.addEventListener('error',()=>{
+  const showError=()=>{
     const box=video.closest('.polaroid-media-box');
     if(!box || box.querySelector('.media-error')) return;
     video.style.display='none';
@@ -99,7 +99,10 @@ document.querySelectorAll('.polaroid-media-box video').forEach(video=>{
     notice.className='media-error';
     notice.innerHTML='<i class="fa-solid fa-video-slash"></i><strong>Video file not found</strong><small>Place this file at: '+path.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;')+'</small>';
     box.appendChild(notice);
-  });
+  };
+  video.addEventListener('error',showError);
+  const src=video.querySelector('source');
+  if(src) src.addEventListener('error',showError);
   video.addEventListener('loadedmetadata',()=>{
     const notice=video.closest('.polaroid-media-box')?.querySelector('.media-error');
     if(notice) notice.remove();
@@ -112,7 +115,7 @@ let isMusicPlaying=false;
 mainAudio.volume=parseFloat(document.getElementById('bgVolume').value);
 
 mainAudio.addEventListener('error',()=>{
-  console.error('Background audio failed to load. Check the filename and path: mainaudio.mp3');
+  console.error('Background audio failed to load. Check the filename and path: media/mainaudio.mp3');
   document.getElementById('bgMusicLabel').innerText='Audio not found';
 });
 mainAudio.addEventListener('canplay',()=>{
